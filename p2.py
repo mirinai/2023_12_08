@@ -84,19 +84,21 @@ def list_of_std(K,L,evTeam):
     count=0
     #기준 넘은 팀들의 값들을 넣을 리스트
     std_team=[]
-    t=True
+
     for team in evTeam:
-        if sum(team)>=K:
+        t = True
+        if sum(team)<K:
+            t = False
+
+        else:
             for j in team:
-                if j>=L:
-                    t=True
-                else:
+                if j<L:
                     t=False
                     break
         if t==True:
             count+=1
             std_team.extend(team)
-        t=True
+
     print(count)
     print(*std_team)
 
